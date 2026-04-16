@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+spec:
+  replicas: 1 # 👤 Un seul exemplaire
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend-container
+        image: anisbastide04/dockerkubefrontend:latest # 🐳 Ton image Front
+        ports:
+        - containerPort: 3000 # 🔌 Le port d'écoute interne du Front
+        envFrom:
+        - configMapRef:
+            name: front-config

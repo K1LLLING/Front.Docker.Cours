@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: front-config
+data:
+  PORT: "3000"
+  REACT_APP_BACKEND_ADDRESS: "http://127.0.0.1:55366/weather"
